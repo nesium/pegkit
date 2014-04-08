@@ -32,6 +32,10 @@
 @property (nonatomic, readwrite) NSUInteger offset;
 @end
 
+@interface PKTokenizer ()
+@property (nonatomic, readwrite) NSUInteger lineNumber;
+@end
+
 @interface PKTokenizerState ()
 - (void)resetWithReader:(PKReader *)r;
 - (void)append:(PKUniChar)c;
@@ -111,6 +115,11 @@
     PKUniChar c;
     for (;;) {
         c = [r read];
+        
+        if ('\n' == c) {
+            t.lineNumber++;
+        }
+        
         if (PKEOF == c) {
             if (balanceEOF) {
                 [self appendString:currentEndSymbol];
