@@ -30,6 +30,10 @@
 @property (nonatomic, readwrite) NSUInteger offset;
 @end
 
+@interface PKTokenizer ()
+@property (nonatomic, readwrite) NSUInteger lineNumber;
+@end
+
 @interface PKTokenizerState ()
 - (void)resetWithReader:(PKReader *)r;
 - (PKTokenizerState *)nextTokenizerStateFor:(PKUniChar)c tokenizer:(PKTokenizer *)t;
@@ -72,6 +76,10 @@
 - (PKToken *)nextTokenFromReader:(PKReader *)r startingWith:(PKUniChar)cin tokenizer:(PKTokenizer *)t {
     NSParameterAssert(r);
     [self resetWithReader:r];
+    
+    if ('\n' == cin) {
+        t.lineNumber++;
+    }
     
     NSString *symbol = [_rootNode nextSymbol:r startingWith:cin];
     NSUInteger len = [symbol length];
