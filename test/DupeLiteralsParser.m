@@ -15,15 +15,15 @@
         self.startRuleName = @"start";
         self.tokenKindTab[@"NONE"] = @(DUPELITERALS_TOKEN_KIND_NONE_1);
         self.tokenKindTab[@"None"] = @(DUPELITERALS_TOKEN_KIND_NONE_2);
-        self.tokenKindTab[@"?("] = @(DUPELITERALS_TOKEN_KIND_1);
+        self.tokenKindTab[@"|"] = @(DUPELITERALS_TOKEN_KIND_PIPE);
         self.tokenKindTab[@"none"] = @(DUPELITERALS_TOKEN_KIND_NONE);
-        self.tokenKindTab[@"):"] = @(DUPELITERALS_TOKEN_KIND_2);
+        self.tokenKindTab[@"\""] = @(DUPELITERALS_TOKEN_KIND_QUOTE);
 
         self.tokenKindNameTab[DUPELITERALS_TOKEN_KIND_NONE_1] = @"NONE";
         self.tokenKindNameTab[DUPELITERALS_TOKEN_KIND_NONE_2] = @"None";
-        self.tokenKindNameTab[DUPELITERALS_TOKEN_KIND_1] = @"?(";
+        self.tokenKindNameTab[DUPELITERALS_TOKEN_KIND_PIPE] = @"|";
         self.tokenKindNameTab[DUPELITERALS_TOKEN_KIND_NONE] = @"none";
-        self.tokenKindNameTab[DUPELITERALS_TOKEN_KIND_2] = @"):";
+        self.tokenKindNameTab[DUPELITERALS_TOKEN_KIND_QUOTE] = @"\"";
 
     }
     return self;
@@ -39,7 +39,8 @@
     [self execute:^{
     
     PKTokenizer *t = self.tokenizer;
-	[t.symbolState add:@"?("];
+
+    [t setTokenizerState:t.symbolState from:'"' to:'"'];
 
     }];
 
@@ -53,12 +54,14 @@
     do {
         if ([self predicts:DUPELITERALS_TOKEN_KIND_NONE, DUPELITERALS_TOKEN_KIND_NONE_1, DUPELITERALS_TOKEN_KIND_NONE_2, 0]) {
             [self none_]; 
-        } else if ([self predicts:DUPELITERALS_TOKEN_KIND_1, DUPELITERALS_TOKEN_KIND_2, 0]) {
-            [self weird_]; 
+        } else if ([self predicts:DUPELITERALS_TOKEN_KIND_QUOTE, 0]) {
+            [self quote_]; 
+        } else if ([self predicts:DUPELITERALS_TOKEN_KIND_PIPE, 0]) {
+            [self block_]; 
         } else {
             [self raise:@"No viable alternative found in rule 'start'."];
         }
-    } while ([self predicts:DUPELITERALS_TOKEN_KIND_1, DUPELITERALS_TOKEN_KIND_2, DUPELITERALS_TOKEN_KIND_NONE, DUPELITERALS_TOKEN_KIND_NONE_1, DUPELITERALS_TOKEN_KIND_NONE_2, 0]);
+    } while ([self speculate:^{ if ([self predicts:DUPELITERALS_TOKEN_KIND_NONE, DUPELITERALS_TOKEN_KIND_NONE_1, DUPELITERALS_TOKEN_KIND_NONE_2, 0]) {[self none_]; } else if ([self predicts:DUPELITERALS_TOKEN_KIND_QUOTE, 0]) {[self quote_]; } else if ([self predicts:DUPELITERALS_TOKEN_KIND_PIPE, 0]) {[self block_]; } else {[self raise:@"No viable alternative found in rule 'start'."];}}]);
 
     [self fireDelegateSelector:@selector(parser:didMatchStart:)];
 }
@@ -78,17 +81,22 @@
     [self fireDelegateSelector:@selector(parser:didMatchNone:)];
 }
 
-- (void)weird_ {
+- (void)quote_ {
     
-    if ([self predicts:DUPELITERALS_TOKEN_KIND_1, 0]) {
-        [self match:DUPELITERALS_TOKEN_KIND_1 discard:NO]; 
-    } else if ([self predicts:DUPELITERALS_TOKEN_KIND_2, 0]) {
-        [self match:DUPELITERALS_TOKEN_KIND_2 discard:NO]; 
-    } else {
-        [self raise:@"No viable alternative found in rule 'weird'."];
-    }
+    [self match:DUPELITERALS_TOKEN_KIND_QUOTE discard:YES]; 
+    [self matchWord:NO]; 
+    [self match:DUPELITERALS_TOKEN_KIND_QUOTE discard:YES]; 
 
-    [self fireDelegateSelector:@selector(parser:didMatchWeird:)];
+    [self fireDelegateSelector:@selector(parser:didMatchQuote:)];
+}
+
+- (void)block_ {
+    
+    [self match:DUPELITERALS_TOKEN_KIND_PIPE discard:NO]; 
+    [self matchWord:NO]; 
+    [self match:DUPELITERALS_TOKEN_KIND_PIPE discard:NO]; 
+
+    [self fireDelegateSelector:@selector(parser:didMatchBlock:)];
 }
 
 @end

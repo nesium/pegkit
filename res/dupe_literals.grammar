@@ -1,8 +1,10 @@
 @before {
     PKTokenizer *t = self.tokenizer;
-	[t.symbolState add:@"?("];
+
+    [t setTokenizerState:t.symbolState from:'"' to:'"'];
 }
 
-start = (none | weird)+;
+start = (none | quote | block)+;
 none = 'none' | 'NONE' | 'None';
-weird = '?(' | '):';
+quote = '"'! Word '"'!;
+block = '|' Word '|';
