@@ -54,14 +54,13 @@
 @property (nonatomic, retain) PKDelimitDescriptorCollection *collection;
 @end
 
-@implementation PKDelimitState {
-    NSInteger _nestedCount;
-}
+@implementation PKDelimitState
 
 - (id)init {
     self = [super init];
     if (self) {
         self.rootNode = [[[PKSymbolRootNode alloc] init] autorelease];
+        _rootNode.reportsAddedSymbolsOnly = YES;
         self.collection = [[[PKDelimitDescriptorCollection alloc] init] autorelease];
     }
     return self;
@@ -96,193 +95,121 @@
     NSParameterAssert(t);
     
     NSString *startMarker = [_rootNode nextSymbol:r startingWith:cin];
-    NSArray *descs = nil;
+    NSMutableArray *matchingDescs = nil;
     
+    // check for false match
     if ([startMarker length]) {
-        descs = [_collection descriptorsForStartMarker:startMarker];
+        matchingDescs = [[[_collection descriptorsForStartMarker:startMarker] mutableCopy] autorelease];
         
-        if (![descs count]) {
+        if (![matchingDescs count]) {
             [r unread:[startMarker length] - 1];
             return [[self nextTokenizerStateFor:cin tokenizer:t] nextTokenFromReader:r startingWith:cin tokenizer:t];
         }
     }
     
+    // reset
     [self resetWithReader:r];
     self.offset = r.offset - [startMarker length];
     [self appendString:startMarker];
     
-    BOOL hasEndMarkers = NO;
-    NSUInteger count = [descs count];
-    if (0 == count) {
-        NSAssert(0, @"should never reach");
-        return nil;
-    }
+    NSUInteger stackCount = 0;
     
-    PKUniChar startChars[count];
-    PKUniChar endChars[count];
+    // setup a temp root node with current start and end markers
+    PKSymbolRootNode *currRootNode = [[[PKSymbolRootNode alloc] init] autorelease];
+    currRootNode.reportsAddedSymbolsOnly = YES;
     
-    // initialize for static analyzer
-    for (NSUInteger k = 0; k < count; ++k) {
-        startChars[k] = endChars[k] = '\0';
-    }
-    
-    PKDelimitDescriptor *selectedDesc = nil;
-    _nestedCount = 0;
-
-    NSUInteger i = 0;
-    for (PKDelimitDescriptor *desc in descs) {
-        startChars[i] = [startMarker characterAtIndex:0];
-        NSString *endMarker = desc.endMarker;
-        PKUniChar e = PKEOF;
-        
-        if ([endMarker length]) {
-            e = [endMarker characterAtIndex:0];
-            hasEndMarkers = YES;
+    for (PKDelimitDescriptor *desc in matchingDescs) {
+        [currRootNode add:desc.startMarker];
+        if (desc.endMarker) {
+            [currRootNode add:desc.endMarker];
         }
-        endChars[i++] = e;
     }
-    
-    NSCharacterSet *nlset = [NSCharacterSet newlineCharacterSet];
+
     PKUniChar c;
+    PKDelimitDescriptor *matchedDesc = nil;
+    
     for (;;) {
         c = [r read];
-        //NSLog(@"%C", (UniChar)c);
-        if (PKEOF == c) {
-            if (hasEndMarkers && _balancesEOFTerminatedStrings) {
-                [self appendString:[descs[0] endMarker]];
-                break;
-            } else if (hasEndMarkers) {
-                [r unread:[[self bufferedString] length] - 1];
-                return [[self nextTokenizerStateFor:cin tokenizer:t] nextTokenFromReader:r startingWith:cin tokenizer:t];
-            }
-        }
-        
-        //if (!hasEndMarkers && [t.whitespaceState isWhitespaceChar:c]) {
-        if (!hasEndMarkers && [nlset characterIsMember:c]) {
-            // if only the start marker was matched, dont return delimited string token. instead, defer tokenization
-            if ([startMarker isEqualToString:[self bufferedString]]) {
-                [r unread:[startMarker length] - 1];
-                return [[self nextTokenizerStateFor:cin tokenizer:t] nextTokenFromReader:r startingWith:cin tokenizer:t];
-            }
-            // else, return delimited string tok
-            break;
-        }
-
-        BOOL done = NO;
-        NSString *endMarker = nil;
-        NSCharacterSet *charSet = nil;
-        BOOL hasConsumedAtLeastOneChar = [[self bufferedString] length];
-
-        for (NSUInteger j = 0; j < count; ++j) {
-            if ('\\' == c) {
-                //[self append:c]; // drop escape backslash
-                c = [r read];
-                if (PKEOF == c) {
-                    break;
-                } else {
-                    [self append:c]; // append escaped char and,
-                    c = [r read]; // advance
-                }
-            }
-            
-            PKUniChar a = startChars[j];
-            PKUniChar e = endChars[j];
-            
-            NSString *peek = nil;
-            BOOL foundNestedStartMarker = NO;
-            
-            if (_allowsNestedMarkers && hasConsumedAtLeastOneChar && a == c) {
-                selectedDesc = descs[j];
-                endMarker = [selectedDesc endMarker];
-                charSet = [selectedDesc characterSet];
-                
-                peek = [_rootNode nextSymbol:r startingWith:c];
-                //NSLog(@"%@ %@", peek, [self bufferedString]);
-                
-                if ([startMarker isEqualToString:peek]) {
-                    foundNestedStartMarker = YES;
-                    _nestedCount++;
-                }
-            }
-            
-            if (!foundNestedStartMarker && (e == c || PKEOF == c)) {
-                selectedDesc = descs[j];
-                endMarker = [selectedDesc endMarker];
-                charSet = [selectedDesc characterSet];
-                
-                if (!peek) {
-                    peek = [_rootNode nextSymbol:r startingWith:c];
-                }
-                //NSLog(@"%@ %@", peek, [self bufferedString]);
-
-                BOOL foundEndMarker = NO;
-                if (endMarker && [endMarker isEqualToString:peek]) {
-                    if (_allowsNestedMarkers && _nestedCount) {
-                        _nestedCount--;
-                    } else {
-                        foundEndMarker = YES;
-                    }
-                }
-                
-                if (PKEOF == c) {
-                    done = YES;
-                    break;
-                } else if (foundEndMarker) {
-                    [self appendString:endMarker];
-                    //c = [r read];
-                    done = YES;
-                    break;
-                } else {
-                    [r unread:[peek length] - 1];
-                    if (e != [peek characterAtIndex:0]) {
-                        [self append:c];
-                        c = [r read];
-                    }
-                }
-
-            }
-        }
-
-        if (done) {
-            if (charSet) {
-                NSString *contents = [self bufferedString];
-                NSUInteger loc = [startMarker length];
-                NSUInteger len = [contents length] - (loc + [endMarker length]);
-                contents = [contents substringWithRange:NSMakeRange(loc, len)];
-                
-                for (NSUInteger i = 0; i < len; ++i) {
-                    PKUniChar c = [contents characterAtIndex:i];
-
-                    // check if char is not in allowed character set (if given)
-                    if (![charSet characterIsMember:c]) {
-                        // if not, unwind and return a symbol tok for cin
-                        
-                        NSUInteger buffLen = [[self bufferedString] length];
-                        [r unread:buffLen - 1];
-
-                        return [[self nextTokenizerStateFor:cin tokenizer:t] nextTokenFromReader:r startingWith:cin tokenizer:t];
-                    }
-                }
-            }
-
+        if ('\\' == c) {
             c = [r read];
-            break;
+            [self append:c];
+            continue;
         }
         
+        if (PKEOF == c) {
+            if (!_balancesEOFTerminatedStrings) {
+                for (PKDelimitDescriptor *desc in [[matchingDescs copy] autorelease]) {
+                    if (desc.endMarker) {
+                        [matchingDescs removeObject:desc];
+                    }
+                }
+            }
+            break;
+        }
+
+        NSString *marker = [currRootNode nextSymbol:r startingWith:c];
+        if ([marker length]) {
+            for (PKDelimitDescriptor *desc in matchingDescs) {
+                if (_allowsNestedMarkers && [marker isEqualToString:desc.startMarker] && ![desc.startMarker isEqualToString:desc.endMarker]) {
+                    ++stackCount;
+                    break;
+                } else if ([marker isEqualToString:desc.endMarker]) {
+                    if (_allowsNestedMarkers && stackCount > 0 && ![desc.startMarker isEqualToString:desc.endMarker]) {
+                        --stackCount;
+                        break;
+                    } else {
+                        matchedDesc = desc;
+                        [self appendString:desc.endMarker];
+                        break;
+                    }
+                }
+            }
+            if (matchedDesc) {
+                break;
+            }
+        }
+        
+        for (PKDelimitDescriptor *desc in [[matchingDescs copy] autorelease]) {
+            if (desc.characterSet && ![desc.characterSet characterIsMember:c]) {
+                [matchingDescs removeObject:desc];
+            }
+        }
+        
+        // no remaining matches. bail
+        if (![matchingDescs count]) {
+            break;
+        }
         
         [self append:c];
     }
     
-    if (PKEOF != c) {
-        [r unread];
+    if (!matchedDesc && [matchingDescs count]) {
+        matchedDesc = matchingDescs[0];
+
+        if (PKEOF == c && _balancesEOFTerminatedStrings && matchedDesc.endMarker) {
+            [self appendString:matchedDesc.endMarker];
+        }
     }
     
-    PKToken *tok = [PKToken tokenWithTokenType:PKTokenTypeDelimitedString stringValue:[self bufferedString] doubleValue:0.0];
-    tok.offset = self.offset;
+    PKToken *tok = nil;
     
-    NSString *tokenKindKey = [NSString stringWithFormat:@"%@,%@", selectedDesc.startMarker, selectedDesc.endMarker];
-    NSInteger tokenKind = [t tokenKindForStringValue:tokenKindKey];
-    tok.tokenKind = tokenKind; //selectedDesc.tokenKind;
+    if (matchedDesc) {
+        tok = [PKToken tokenWithTokenType:PKTokenTypeDelimitedString stringValue:[self bufferedString] doubleValue:0.0];
+        tok.offset = self.offset;
+        
+        NSString *tokenKindKey = [NSString stringWithFormat:@"%@,%@", matchedDesc.startMarker, matchedDesc.endMarker];
+        NSInteger tokenKind = [t tokenKindForStringValue:tokenKindKey];
+        tok.tokenKind = tokenKind; //selectedDesc.tokenKind;
+    } else {
+        if (PKEOF != c) {
+            [r unread];
+        }
+        
+        NSUInteger buffLen = [[self bufferedString] length];
+        [r unread:buffLen - 1];
+        
+        tok = [[self nextTokenizerStateFor:cin tokenizer:t] nextTokenFromReader:r startingWith:cin tokenizer:t];
+    }
 
     return tok;
 }
