@@ -184,7 +184,9 @@
     switch (node.type) {
         case PGNodeTypeConstant: {
             PGConstantNode *constNode = (PGConstantNode *)node;
-            [set addObject:constNode.tokenKind];
+            if (constNode.token.tokenKind != TOKEN_KIND_BUILTIN_EMPTY) {
+                [set addObject:constNode.tokenKind];
+            }
         } break;
         case PGNodeTypeLiteral: {
             PGLiteralNode *litNode = (PGLiteralNode *)node;
@@ -1000,7 +1002,9 @@
     
     PGBaseNode *node = [self concreteNodeForNode:inNode];
     
-    if ([node isKindOfClass:[PGAlternationNode class]]) {
+    if (node.semanticPredicateNode) {
+        result = NO;
+    } else if ([node isKindOfClass:[PGAlternationNode class]]) {
         for (PGBaseNode *child in node.children) {
             if (![self isLL1:child]) {
                 result = NO;
