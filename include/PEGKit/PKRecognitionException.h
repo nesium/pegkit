@@ -26,5 +26,8 @@
 
 - (id)init; // use me
 
+@property (nonatomic, retain) NSString *currentName;
 @property (nonatomic, retain) NSString *currentReason;
+@property (nonatomic, assign) NSRange range;
+@property (nonatomic, assign) NSUInteger lineNumber;
 @end

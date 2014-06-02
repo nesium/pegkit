@@ -33,7 +33,12 @@
 #define FAILED -1
 
 NSString * const PEGKitErrorDomain = @"PEGKitErrorDomain";
+NSString * const PEGKitErrorRangeKey = @"range";
+NSString * const PEGKitErrorLineNumberKey = @"lineNumber";
+
 NSInteger PEGKitRecognitionErrorCode = 1;
+NSString * const PEGKitRecognitionTokenMatchFailed = @"Failed to match next input token";
+NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
 
 @interface NSObject ()
 - (void)parser:(PKParser *)p didFailToMatch:(PKAssembly *)a;
@@ -279,24 +284,26 @@ NSInteger PEGKitRecognitionErrorCode = 1;
     }
     @catch (PKRecognitionException *rex) {
         NSString *domain = PEGKitErrorDomain;
-        NSString *reason = [rex currentReason];
-        NSLog(@"%@", reason);
+        NSString *name = rex.currentName;
+        NSString *reason = rex.currentReason;
+        NSLog(@"%@: %@", name, reason);
 
         if (outError) {
-            *outError = [self errorWithDomain:domain reason:reason];
+            *outError = [self errorWithDomain:domain name:name reason:reason range:rex.range lineNumber:rex.lineNumber];
         } else {
-            [NSException raise:domain format:reason, nil];
+            [rex raise];
         }
     }
     @catch (NSException *ex) {
-        NSString *domain = NSGenericException;
+        NSString *domain = PEGKitErrorDomain;
+        NSString *name = [ex name];
         NSString *reason = [ex reason];
         NSLog(@"%@", reason);
         
         if (outError) {
-            *outError = [self errorWithDomain:domain reason:reason];
+            *outError = [self errorWithDomain:domain name:name reason:reason range:NSMakeRange(NSNotFound, 0) lineNumber:0];
         } else {
-            [NSException raise:domain format:reason, nil];
+            [ex raise];
         }
     }
     @finally {
@@ -314,13 +321,18 @@ NSInteger PEGKitRecognitionErrorCode = 1;
 }
 
 
-- (NSError *)errorWithDomain:(NSString *)domain reason:(NSString *)reason {
+- (NSError *)errorWithDomain:(NSString *)domain name:(NSString *)name reason:(NSString *)reason range:(NSRange)r lineNumber:(NSUInteger)lineNum {
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+
+    // get description
+    name = name ? name : NSLocalizedString(@"A parsing recognition exception occured.", @"");
+    [userInfo setObject:name forKey:NSLocalizedDescriptionKey];
     
     // get reason
-    if ([reason length]) [userInfo setObject:reason forKey:NSLocalizedFailureReasonErrorKey];
-    
-    [userInfo setObject:NSLocalizedString(@"A parsing recognition exception occured.", @"") forKey:NSLocalizedDescriptionKey];
+    reason = reason ? reason : @"";
+    userInfo[NSLocalizedFailureReasonErrorKey] = reason;
+    userInfo[PEGKitErrorRangeKey] = [NSValue valueWithRange:r];
+    userInfo[PEGKitErrorLineNumberKey] = @(lineNum);
     
     // convert to NSError
     NSError *err = [NSError errorWithDomain:PEGKitErrorDomain code:PEGKitRecognitionErrorCode userInfo:[[userInfo copy] autorelease]];
@@ -345,7 +357,7 @@ NSInteger PEGKitRecognitionErrorCode = 1;
             if (discard) [self discard];
         }
     } else {
-        NSString *msg = [NSString stringWithFormat:@"Expected : %@", [self stringForTokenKind:tokenKind]];
+        NSString *msg = [NSString stringWithFormat:@"Expected : %@\n", [self stringForTokenKind:tokenKind]];
         [self raise:msg];
     }
 }
@@ -526,10 +538,37 @@ NSInteger PEGKitRecognitionErrorCode = 1;
     va_start(vargs, fmt);
     
     NSString *str = [[[NSString alloc] initWithFormat:fmt arguments:vargs] autorelease];
+    
+    va_end(vargs);
+    
+    //PKToken *lt = LT(1);
+    //NSUInteger lineNum = lt.lineNumber;
+    //NSRange r = NSMakeRange(lt.offset, [lt.stringValue length]);
+
+    //_exception.currentName = PEGKitRecognitionSpeculationFailed;
+    _exception.currentReason = str;
+    //_exception.lineNumber = lineNum;
+    //_exception.range = r;
+    
+    //NSLog(@"%@", str);
+    
+    // reuse
+    @throw _exception;
+}
+
+
+- (void)raiseInRange:(NSRange)r lineNumber:(NSUInteger)lineNum name:(NSString *)name format:(NSString *)fmt, ... {
+    va_list vargs;
+    va_start(vargs, fmt);
+    
+    NSString *str = [[[NSString alloc] initWithFormat:fmt arguments:vargs] autorelease];
 
     va_end(vargs);
 
+    _exception.currentName = name;
     _exception.currentReason = str;
+    _exception.lineNumber = lineNum;
+    _exception.range = r;
     
     //NSLog(@"%@", str);
 
@@ -539,19 +578,26 @@ NSInteger PEGKitRecognitionErrorCode = 1;
 
 
 - (void)raise:(NSString *)msg {
+    [self raiseWithName:PEGKitRecognitionTokenMatchFailed message:msg];
+}
+
+    
+- (void)raiseWithName:(NSString *)name message:(NSString *)msg {
     NSString *fmt = nil;
     
 #if defined(__LP64__)
-    fmt = @"\n\n%@\nLine : %lu\nNear : %@\nFound : %@\n\n";
+    fmt = @"\n\nLine : %lu\nNear : %@\n%@Found : %@\n\n";
 #else
-    fmt = @"\n\n%@\nLine : %u\nNear : %@\nFound : %@\n\n";
+    fmt = @"\n\nLine : %u\nNear : %@\n%@Found : %@\n\n";
 #endif
     
     PKToken *lt = LT(1);
     
     NSUInteger lineNum = lt.lineNumber;
     //NSAssert(NSNotFound != lineNum, @"");
-
+    
+    NSRange r = NSMakeRange(lt.offset, [lt.stringValue length]);
+    
     NSMutableString *after = [NSMutableString string];
     NSString *delim = _silentlyConsumesWhitespace ? @"" : @" ";
     
@@ -563,7 +609,7 @@ NSInteger PEGKitRecognitionErrorCode = 1;
     }
     
     NSString *found = lt ? lt.stringValue : @"-nothing-";
-    [self raiseFormat:fmt, msg, lineNum, after, found];
+    [self raiseInRange:r lineNumber:lineNum name:PEGKitRecognitionTokenMatchFailed format:fmt, lineNum, after, msg, found];
 }
 
 
@@ -713,7 +759,7 @@ NSInteger PEGKitRecognitionErrorCode = 1;
     NSParameterAssert(block);
     
     if (![self test:block]) {
-        [self raise:@"Predicate Failed"];
+        [self raiseWithName:PEGKitRecognitionPredicateFailed message:@""];
     }
 }
 
