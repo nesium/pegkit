@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C380AD319753FFB001AFD74 /* TDTemplateEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D319137318F19D7900430BAD /* TDTemplateEngine.framework */; };
 		3D0466A918E1D9770022A1BC /* OCMock.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D37214CA18DF3B0100525058 /* OCMock.framework */; };
 		D306298218E1ED5D00EF745E /* TDTestScaffold.m in Sources */ = {isa = PBXBuildFile; fileRef = D306298118E1ED5D00EF745E /* TDTestScaffold.m */; };
 		D3083AB61705F05C00DA6F95 /* elementsAssign.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3083AB51705F05C00DA6F95 /* elementsAssign.grammar */; };
@@ -442,6 +443,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2C380AD319753FFB001AFD74 /* TDTemplateEngine.framework in Copy Frameworks */,
 				D3CC54FC18CF993B006715D6 /* PEGKit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -509,7 +511,7 @@
 		D317C1B718D206890036BE75 /* MiniMath2ParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MiniMath2ParserTest.m; path = test/MiniMath2ParserTest.m; sourceTree = "<group>"; };
 		D317C1B918D207870036BE75 /* MiniMath2Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MiniMath2Parser.h; path = test/MiniMath2Parser.h; sourceTree = "<group>"; };
 		D317C1BA18D207870036BE75 /* MiniMath2Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MiniMath2Parser.m; path = test/MiniMath2Parser.m; sourceTree = "<group>"; };
-		D319137318F19D7900430BAD /* TDTemplateEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TDTemplateEngine.framework; path = lib/TDTemplateEngine/build/Debug/TDTemplateEngine.framework; sourceTree = "<group>"; };
+		D319137318F19D7900430BAD /* TDTemplateEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TDTemplateEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D31A15250F6DE449002AFDF1 /* javascript.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = javascript.grammar; path = res/javascript.grammar; sourceTree = "<group>"; };
 		D31BBCAF18E4722F0003FFA3 /* CreateTableStmtParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateTableStmtParserTest.m; path = test/CreateTableStmtParserTest.m; sourceTree = "<group>"; };
 		D31BBCB118E4725F0003FFA3 /* CreateTableStmtParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateTableStmtParser.h; path = test/CreateTableStmtParser.h; sourceTree = "<group>"; };
