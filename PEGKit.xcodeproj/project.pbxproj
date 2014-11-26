@@ -1597,7 +1597,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0510;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					D3F8A3DA175817DF00056188 = {
 						DevelopmentTeam = 87VWBQV426;
