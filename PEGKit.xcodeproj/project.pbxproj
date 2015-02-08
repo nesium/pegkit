@@ -140,7 +140,7 @@
 		D31BBCF218E4F1EF0003FFA3 /* TDTokenizerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCDD18E4F1EF0003FFA3 /* TDTokenizerTest.m */; };
 		D31BBCFD18E4F4FE0003FFA3 /* TDCommentStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCC918E4F1EF0003FFA3 /* TDCommentStateTest.m */; };
 		D31BBCFE18E4F4FE0003FFA3 /* TDDelimitStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCCB18E4F1EF0003FFA3 /* TDDelimitStateTest.m */; };
-		D31BBCFF18E4F4FE0003FFA3 /* testSlashSlashEscapeBackslashFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = D31BBCFB18E4F3240003FFA3 /* testSlashSlashEscapeBackslashFile.txt */; };
+		D31BBCFF18E4F4FE0003FFA3 /* slashFooBackslashSlashBarSlash.txt in Resources */ = {isa = PBXBuildFile; fileRef = D31BBCFB18E4F3240003FFA3 /* slashFooBackslashSlashBarSlash.txt */; };
 		D31BBD0018E4F4FE0003FFA3 /* TDEmailStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCCD18E4F1EF0003FFA3 /* TDEmailStateTest.m */; };
 		D31BBD0118E4F4FE0003FFA3 /* TDNumberStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCCF18E4F1EF0003FFA3 /* TDNumberStateTest.m */; };
 		D31BBD0218E4F5140003FFA3 /* TDQuoteStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCD118E4F1EF0003FFA3 /* TDQuoteStateTest.m */; };
@@ -150,7 +150,6 @@
 		D31BBD0618E4F52D0003FFA3 /* TDWhitespaceStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCE518E4F1EF0003FFA3 /* TDWhitespaceStateTest.m */; };
 		D31BBD0718E4F53F0003FFA3 /* TDWordStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCE718E4F1EF0003FFA3 /* TDWordStateTest.m */; };
 		D31BBD0918E4F5900003FFA3 /* TDURLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCE318E4F1EF0003FFA3 /* TDURLStateTest.m */; };
-		D31FE9C9191016EC0039886B /* INIParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31FE9C8191016EC0039886B /* INIParserTest.m */; };
 		D31FE9CC191017580039886B /* INIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D31FE9CB191017580039886B /* INIParser.m */; };
 		D31FE9CE191017DE0039886B /* ini.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D31FE9CD191017DE0039886B /* ini.grammar */; };
 		D3344F4917405B4B00598362 /* JSRecoveryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3344F4817405B4B00598362 /* JSRecoveryTest.m */; };
@@ -223,10 +222,17 @@
 		D33830C8171DBE8A00CCE513 /* named_action.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D33830C7171DBE8A00CCE513 /* named_action.grammar */; };
 		D33830CB171DBEB100CCE513 /* NamedActionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D33830CA171DBEB100CCE513 /* NamedActionParser.m */; };
 		D33830CE171DBEE200CCE513 /* NamedActionParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D33830CD171DBEE200CCE513 /* NamedActionParserTest.m */; };
+		D34795D319423D9F00181E56 /* lines.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D34795D219423D9E00181E56 /* lines.grammar */; };
+		D34795D819423DC300181E56 /* LinesParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D34795D719423DC300181E56 /* LinesParser.m */; };
 		D34F53A717430232008700F3 /* CrockfordParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F53A617430232008700F3 /* CrockfordParserTest.m */; };
 		D34F53AC17430249008700F3 /* CrockfordParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F53AB17430249008700F3 /* CrockfordParser.m */; };
 		D34F53AE174302A4008700F3 /* crockford.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D34F53AD174302A4008700F3 /* crockford.grammar */; };
 		D3633A2F170A700900C0966D /* nspredicate2.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3633A2D170A6E9700C0966D /* nspredicate2.grammar */; };
+		D366C1AC1A5310F200D69669 /* PGNegationNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1AB1A5310F200D69669 /* PGNegationNode.m */; };
+		D366C1AD1A5310F200D69669 /* PGNegationNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1AB1A5310F200D69669 /* PGNegationNode.m */; };
+		D366C1B01A5311F700D69669 /* PGRepetitionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1AF1A5311F700D69669 /* PGRepetitionNode.m */; };
+		D366C1B11A5311F700D69669 /* PGRepetitionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1AF1A5311F700D69669 /* PGRepetitionNode.m */; };
+		D366C1B21A53408A00D69669 /* Negation3ParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C3AD631A530AFC00695EB7 /* Negation3ParserTest.m */; };
 		D36E68B3171F378B007B4353 /* JavaScriptParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E68B2171F378B007B4353 /* JavaScriptParserTest.m */; };
 		D36E68B6171F37D7007B4353 /* JavaScriptParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E68B5171F37D7007B4353 /* JavaScriptParser.m */; };
 		D36E68B9172074EF007B4353 /* CSSParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E68B8172074EF007B4353 /* CSSParserTest.m */; };
@@ -360,15 +366,26 @@
 		D3BD39791729F1DE00FC6549 /* PGPreCallbackSyntaxLeafTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3BD39761729F1DD00FC6549 /* PGPreCallbackSyntaxLeafTemplate.txt */; };
 		D3BD397B1729F2ED00FC6549 /* PGPreCallbackSyntaxLeafTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3BD39761729F1DD00FC6549 /* PGPreCallbackSyntaxLeafTemplate.txt */; };
 		D3BD397C1729F2F100FC6549 /* PGPostCallbackSyntaxLeafTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3BD39751729F1DD00FC6549 /* PGPostCallbackSyntaxLeafTemplate.txt */; };
+		D3C3AD5B1A5307EB00695EB7 /* negation2.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3C3AD5A1A5307EB00695EB7 /* negation2.grammar */; };
+		D3C3AD5D1A5308A400695EB7 /* Negation2ParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C3AD5C1A5308A400695EB7 /* Negation2ParserTest.m */; };
+		D3C3AD601A53091300695EB7 /* Negation2Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C3AD5F1A53091300695EB7 /* Negation2Parser.m */; };
+		D3C3AD621A530AD000695EB7 /* negation3.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3C3AD611A530AD000695EB7 /* negation3.grammar */; };
+		D3C3AD671A530BAC00695EB7 /* Negation3Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C3AD661A530BAC00695EB7 /* Negation3Parser.m */; };
 		D3C7982619005C2B00EC8CB2 /* deterministic_palindromes.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3C7982519005C2B00EC8CB2 /* deterministic_palindromes.grammar */; };
 		D3C7982819005C8A00EC8CB2 /* DeterministicPalindromeParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C7982719005C8A00EC8CB2 /* DeterministicPalindromeParserTest.m */; };
 		D3C7982B19005CBC00EC8CB2 /* DeterministicPalindromeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C7982A19005CBC00EC8CB2 /* DeterministicPalindromeParser.m */; };
 		D3C7982D19005EE900EC8CB2 /* NondeterministicPalindromeParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C7982C19005EE900EC8CB2 /* NondeterministicPalindromeParserTest.m */; };
 		D3C7982F19005EFB00EC8CB2 /* nondeterministic_palindromes.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3C7982E19005EFB00EC8CB2 /* nondeterministic_palindromes.grammar */; };
 		D3C7983219005F3300EC8CB2 /* NondeterministicPalindromeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C7983119005F3300EC8CB2 /* NondeterministicPalindromeParser.m */; };
+		D3CC1EE3199284360096B1AF /* lines2.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3CC1EE11992842F0096B1AF /* lines2.grammar */; };
+		D3CC1EE8199284A80096B1AF /* Lines2Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CC1EE7199284A80096B1AF /* Lines2Parser.m */; };
 		D3CC548D18CF9282006715D6 /* PEGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F8A48D175817DF00056188 /* PEGKit.framework */; };
 		D3CC54FB18CF9934006715D6 /* PEGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F8A48D175817DF00056188 /* PEGKit.framework */; };
-		D3CC54FC18CF993B006715D6 /* PEGKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3F8A48D175817DF00056188 /* PEGKit.framework */; };
+		D3CC54FC18CF993B006715D6 /* PEGKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3F8A48D175817DF00056188 /* PEGKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D3D1766119B104FD0052F5B8 /* slashFooBackslashBackslashSlashBarSlash.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3D1766019B104FD0052F5B8 /* slashFooBackslashBackslashSlashBarSlash.txt */; };
+		D3D1766219B10C6E0052F5B8 /* Lines2ParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CC1EE4199284790096B1AF /* Lines2ParserTest.m */; };
+		D3D1766319B10C6E0052F5B8 /* LinesParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D34795D419423DB000181E56 /* LinesParserTest.m */; };
+		D3D1766419B10C6E0052F5B8 /* INIParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31FE9C8191016EC0039886B /* INIParserTest.m */; };
 		D3D48D8018E5B3C5001B54E9 /* table_index_spec.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3D48D7F18E5B3C5001B54E9 /* table_index_spec.grammar */; };
 		D3D48D8218E5B484001B54E9 /* TableIndexSpecParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D48D8118E5B484001B54E9 /* TableIndexSpecParserTest.m */; };
 		D3D48D8518E5B500001B54E9 /* TableIndexSpecParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D48D8418E5B500001B54E9 /* TableIndexSpecParser.m */; };
@@ -537,7 +554,7 @@
 		D31BBCE318E4F1EF0003FFA3 /* TDURLStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDURLStateTest.m; path = test/TDURLStateTest.m; sourceTree = "<group>"; };
 		D31BBCE518E4F1EF0003FFA3 /* TDWhitespaceStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDWhitespaceStateTest.m; path = test/TDWhitespaceStateTest.m; sourceTree = "<group>"; };
 		D31BBCE718E4F1EF0003FFA3 /* TDWordStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDWordStateTest.m; path = test/TDWordStateTest.m; sourceTree = "<group>"; };
-		D31BBCFB18E4F3240003FFA3 /* testSlashSlashEscapeBackslashFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testSlashSlashEscapeBackslashFile.txt; path = res/testSlashSlashEscapeBackslashFile.txt; sourceTree = "<group>"; };
+		D31BBCFB18E4F3240003FFA3 /* slashFooBackslashSlashBarSlash.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = slashFooBackslashSlashBarSlash.txt; path = res/slashFooBackslashSlashBarSlash.txt; sourceTree = "<group>"; };
 		D31FE9C8191016EC0039886B /* INIParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INIParserTest.m; path = test/INIParserTest.m; sourceTree = "<group>"; };
 		D31FE9CA191017580039886B /* INIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INIParser.h; path = test/INIParser.h; sourceTree = "<group>"; };
 		D31FE9CB191017580039886B /* INIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INIParser.m; path = test/INIParser.m; sourceTree = "<group>"; };
@@ -570,6 +587,10 @@
 		D33830CD171DBEE200CCE513 /* NamedActionParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NamedActionParserTest.m; path = test/NamedActionParserTest.m; sourceTree = "<group>"; };
 		D33DC1971165634F004CE58C /* PKTwitterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKTwitterState.m; path = src/PKTwitterState.m; sourceTree = "<group>"; };
 		D33DC19F11656952004CE58C /* PKTwitterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKTwitterState.h; path = include/PEGKit/PKTwitterState.h; sourceTree = SOURCE_ROOT; };
+		D34795D219423D9E00181E56 /* lines.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lines.grammar; path = res/lines.grammar; sourceTree = "<group>"; };
+		D34795D419423DB000181E56 /* LinesParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinesParserTest.m; path = test/LinesParserTest.m; sourceTree = "<group>"; };
+		D34795D619423DC300181E56 /* LinesParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinesParser.h; path = test/LinesParser.h; sourceTree = "<group>"; };
+		D34795D719423DC300181E56 /* LinesParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinesParser.m; path = test/LinesParser.m; sourceTree = "<group>"; };
 		D34BAD9B0FF9C95800D7773A /* PKReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKReader.m; path = src/PKReader.m; sourceTree = "<group>"; };
 		D34BADA00FF9C9B000D7773A /* PKAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKAssembly.m; path = src/PKAssembly.m; sourceTree = "<group>"; };
 		D34BAE950FF9D20900D7773A /* PKToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKToken.m; path = src/PKToken.m; sourceTree = "<group>"; };
@@ -600,6 +621,10 @@
 		D35F4A8B11643662003811F3 /* PKEmailState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKEmailState.h; path = include/PEGKit/PKEmailState.h; sourceTree = SOURCE_ROOT; };
 		D35F4A8C11643662003811F3 /* PKURLState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKURLState.h; path = include/PEGKit/PKURLState.h; sourceTree = SOURCE_ROOT; };
 		D3633A2D170A6E9700C0966D /* nspredicate2.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = nspredicate2.grammar; path = res/nspredicate2.grammar; sourceTree = "<group>"; };
+		D366C1AA1A5310F200D69669 /* PGNegationNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGNegationNode.h; path = ParserGenApp/nodes/PGNegationNode.h; sourceTree = "<group>"; };
+		D366C1AB1A5310F200D69669 /* PGNegationNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGNegationNode.m; path = ParserGenApp/nodes/PGNegationNode.m; sourceTree = "<group>"; };
+		D366C1AE1A5311F700D69669 /* PGRepetitionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGRepetitionNode.h; path = ParserGenApp/nodes/PGRepetitionNode.h; sourceTree = "<group>"; };
+		D366C1AF1A5311F700D69669 /* PGRepetitionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGRepetitionNode.m; path = ParserGenApp/nodes/PGRepetitionNode.m; sourceTree = "<group>"; };
 		D366C55418D1F29D00AF3EFB /* libPEGKitOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPEGKitOSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D366C56718D1F29D00AF3EFB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D36C560B0FD363D500141CB7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
@@ -795,6 +820,14 @@
 		D3C221E10FFE8C4E004514FE /* PKCommentState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKCommentState.h; path = include/PEGKit/PKCommentState.h; sourceTree = SOURCE_ROOT; };
 		D3C221E40FFE8C56004514FE /* PKSingleLineCommentState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKSingleLineCommentState.h; path = include/PEGKit/PKSingleLineCommentState.h; sourceTree = SOURCE_ROOT; };
 		D3C221E70FFE8C60004514FE /* PKMultiLineCommentState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKMultiLineCommentState.h; path = include/PEGKit/PKMultiLineCommentState.h; sourceTree = SOURCE_ROOT; };
+		D3C3AD5A1A5307EB00695EB7 /* negation2.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = negation2.grammar; path = res/negation2.grammar; sourceTree = "<group>"; };
+		D3C3AD5C1A5308A400695EB7 /* Negation2ParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Negation2ParserTest.m; path = test/Negation2ParserTest.m; sourceTree = "<group>"; };
+		D3C3AD5E1A53091300695EB7 /* Negation2Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Negation2Parser.h; path = test/Negation2Parser.h; sourceTree = "<group>"; };
+		D3C3AD5F1A53091300695EB7 /* Negation2Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Negation2Parser.m; path = test/Negation2Parser.m; sourceTree = "<group>"; };
+		D3C3AD611A530AD000695EB7 /* negation3.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = negation3.grammar; path = res/negation3.grammar; sourceTree = "<group>"; };
+		D3C3AD631A530AFC00695EB7 /* Negation3ParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Negation3ParserTest.m; path = test/Negation3ParserTest.m; sourceTree = "<group>"; };
+		D3C3AD651A530BAC00695EB7 /* Negation3Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Negation3Parser.h; path = test/Negation3Parser.h; sourceTree = "<group>"; };
+		D3C3AD661A530BAC00695EB7 /* Negation3Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Negation3Parser.m; path = test/Negation3Parser.m; sourceTree = "<group>"; };
 		D3C7982519005C2B00EC8CB2 /* deterministic_palindromes.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = deterministic_palindromes.grammar; path = res/deterministic_palindromes.grammar; sourceTree = "<group>"; };
 		D3C7982719005C8A00EC8CB2 /* DeterministicPalindromeParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeterministicPalindromeParserTest.m; path = test/DeterministicPalindromeParserTest.m; sourceTree = "<group>"; };
 		D3C7982919005CBC00EC8CB2 /* DeterministicPalindromeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeterministicPalindromeParser.h; path = test/DeterministicPalindromeParser.h; sourceTree = "<group>"; };
@@ -803,6 +836,11 @@
 		D3C7982E19005EFB00EC8CB2 /* nondeterministic_palindromes.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = nondeterministic_palindromes.grammar; path = res/nondeterministic_palindromes.grammar; sourceTree = "<group>"; };
 		D3C7983019005F3300EC8CB2 /* NondeterministicPalindromeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NondeterministicPalindromeParser.h; path = test/NondeterministicPalindromeParser.h; sourceTree = "<group>"; };
 		D3C7983119005F3300EC8CB2 /* NondeterministicPalindromeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NondeterministicPalindromeParser.m; path = test/NondeterministicPalindromeParser.m; sourceTree = "<group>"; };
+		D3CC1EE11992842F0096B1AF /* lines2.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lines2.grammar; path = res/lines2.grammar; sourceTree = "<group>"; };
+		D3CC1EE4199284790096B1AF /* Lines2ParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lines2ParserTest.m; path = test/Lines2ParserTest.m; sourceTree = "<group>"; };
+		D3CC1EE6199284A80096B1AF /* Lines2Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lines2Parser.h; path = test/Lines2Parser.h; sourceTree = "<group>"; };
+		D3CC1EE7199284A80096B1AF /* Lines2Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lines2Parser.m; path = test/Lines2Parser.m; sourceTree = "<group>"; };
+		D3D1766019B104FD0052F5B8 /* slashFooBackslashBackslashSlashBarSlash.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = slashFooBackslashBackslashSlashBarSlash.txt; path = res/slashFooBackslashBackslashSlashBarSlash.txt; sourceTree = "<group>"; };
 		D3D48D7F18E5B3C5001B54E9 /* table_index_spec.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = table_index_spec.grammar; path = res/table_index_spec.grammar; sourceTree = "<group>"; };
 		D3D48D8118E5B484001B54E9 /* TableIndexSpecParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableIndexSpecParserTest.m; path = test/TableIndexSpecParserTest.m; sourceTree = "<group>"; };
 		D3D48D8318E5B500001B54E9 /* TableIndexSpecParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableIndexSpecParser.h; path = test/TableIndexSpecParser.h; sourceTree = "<group>"; };
@@ -948,6 +986,10 @@
 		D31BBCC618E4F1A50003FFA3 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D3C3AD631A530AFC00695EB7 /* Negation3ParserTest.m */,
+				D3C3AD5C1A5308A400695EB7 /* Negation2ParserTest.m */,
+				D3CC1EE4199284790096B1AF /* Lines2ParserTest.m */,
+				D34795D419423DB000181E56 /* LinesParserTest.m */,
 				D31FE9C8191016EC0039886B /* INIParserTest.m */,
 				D3C7982C19005EE900EC8CB2 /* NondeterministicPalindromeParserTest.m */,
 				D3C7982719005C8A00EC8CB2 /* DeterministicPalindromeParserTest.m */,
@@ -1014,7 +1056,8 @@
 			children = (
 				D31BBCC918E4F1EF0003FFA3 /* TDCommentStateTest.m */,
 				D31BBCCB18E4F1EF0003FFA3 /* TDDelimitStateTest.m */,
-				D31BBCFB18E4F3240003FFA3 /* testSlashSlashEscapeBackslashFile.txt */,
+				D31BBCFB18E4F3240003FFA3 /* slashFooBackslashSlashBarSlash.txt */,
+				D3D1766019B104FD0052F5B8 /* slashFooBackslashBackslashSlashBarSlash.txt */,
 				D31BBCCD18E4F1EF0003FFA3 /* TDEmailStateTest.m */,
 				D31BBCCF18E4F1EF0003FFA3 /* TDNumberStateTest.m */,
 				D31BBCD118E4F1EF0003FFA3 /* TDQuoteStateTest.m */,
@@ -1074,6 +1117,10 @@
 				D376F6B818D0B3990064C888 /* PGMultipleNode.m */,
 				D376F6B918D0B3990064C888 /* PGOptionalNode.h */,
 				D376F6BA18D0B3990064C888 /* PGOptionalNode.m */,
+				D366C1AE1A5311F700D69669 /* PGRepetitionNode.h */,
+				D366C1AF1A5311F700D69669 /* PGRepetitionNode.m */,
+				D366C1AA1A5310F200D69669 /* PGNegationNode.h */,
+				D366C1AB1A5310F200D69669 /* PGNegationNode.m */,
 				D376F6BB18D0B3990064C888 /* PGPatternNode.h */,
 				D376F6BC18D0B3990064C888 /* PGPatternNode.m */,
 				D376F6BD18D0B3990064C888 /* PGReferenceNode.h */,
@@ -1286,6 +1333,14 @@
 		D3B22A581703D07000446945 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
+				D3C3AD651A530BAC00695EB7 /* Negation3Parser.h */,
+				D3C3AD661A530BAC00695EB7 /* Negation3Parser.m */,
+				D3C3AD5E1A53091300695EB7 /* Negation2Parser.h */,
+				D3C3AD5F1A53091300695EB7 /* Negation2Parser.m */,
+				D3CC1EE6199284A80096B1AF /* Lines2Parser.h */,
+				D3CC1EE7199284A80096B1AF /* Lines2Parser.m */,
+				D34795D619423DC300181E56 /* LinesParser.h */,
+				D34795D719423DC300181E56 /* LinesParser.m */,
 				D31FE9CA191017580039886B /* INIParser.h */,
 				D31FE9CB191017580039886B /* INIParser.m */,
 				D3C7983019005F3300EC8CB2 /* NondeterministicPalindromeParser.h */,
@@ -1383,6 +1438,10 @@
 		D3B22A5A1703D09C00446945 /* Grammars */ = {
 			isa = PBXGroup;
 			children = (
+				D3C3AD611A530AD000695EB7 /* negation3.grammar */,
+				D3C3AD5A1A5307EB00695EB7 /* negation2.grammar */,
+				D3CC1EE11992842F0096B1AF /* lines2.grammar */,
+				D34795D219423D9E00181E56 /* lines.grammar */,
 				D31FE9CD191017DE0039886B /* ini.grammar */,
 				D3C7982E19005EFB00EC8CB2 /* nondeterministic_palindromes.grammar */,
 				D3C7982519005C2B00EC8CB2 /* deterministic_palindromes.grammar */,
@@ -1598,11 +1657,6 @@
 			attributes = {
 				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0610;
-				TargetAttributes = {
-					D3F8A3DA175817DF00056188 = {
-						DevelopmentTeam = 87VWBQV426;
-					};
-				};
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "PEGKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1696,9 +1750,11 @@
 				D3B986AE1700D3A9000CBCAE /* expression.grammar in Resources */,
 				D3B22A3A17025EA300446945 /* elements.grammar in Resources */,
 				D317C1B418D206730036BE75 /* minimath2.grammar in Resources */,
+				D3D1766119B104FD0052F5B8 /* slashFooBackslashBackslashSlashBarSlash.txt in Resources */,
 				D398E30818EB6FF5004B883C /* dupe_literals.grammar in Resources */,
 				D3083AB61705F05C00DA6F95 /* elementsAssign.grammar in Resources */,
 				D3B63A3617079F7A00BA9DBF /* expressionActions.grammar in Resources */,
+				D3C3AD5B1A5307EB00695EB7 /* negation2.grammar in Resources */,
 				D3B63A3F170910AA00BA9DBF /* methods.grammar in Resources */,
 				D3B63A471709152F00BA9DBF /* methods_factored.grammar in Resources */,
 				D3C7982619005C2B00EC8CB2 /* deterministic_palindromes.grammar in Resources */,
@@ -1707,6 +1763,7 @@
 				D3B63A64170A062100BA9DBF /* label_ebnf.grammar in Resources */,
 				D31FE9CE191017DE0039886B /* ini.grammar in Resources */,
 				D3B63A65170A062100BA9DBF /* label_recursive.grammar in Resources */,
+				D3CC1EE3199284360096B1AF /* lines2.grammar in Resources */,
 				D3B63A72170A3FCF00BA9DBF /* optional.grammar in Resources */,
 				D3B63A79170A55C300BA9DBF /* multiple.grammar in Resources */,
 				D3B63A84170A675000BA9DBF /* alternate.grammar in Resources */,
@@ -1722,6 +1779,7 @@
 				D38BC8B31716008E00BF530D /* semantic_predicate.grammar in Resources */,
 				D3383072171CA3BA00CCE513 /* PGClassInterfaceTemplate.txt in Resources */,
 				D3383073171CA3BA00CCE513 /* PGClassImplementationTemplate.txt in Resources */,
+				D3C3AD621A530AD000695EB7 /* negation3.grammar in Resources */,
 				D3383074171CA3BA00CCE513 /* PGActionTemplate.txt in Resources */,
 				D3A29E2018E714EB00DC591E /* PGGrammarActionTemplate.txt in Resources */,
 				D3383075171CA3BA00CCE513 /* PGMethodTemplate.txt in Resources */,
@@ -1735,7 +1793,7 @@
 				D338307B171CA3BA00CCE513 /* PGPatternPrefixTemplate.txt in Resources */,
 				D3D48D8018E5B3C5001B54E9 /* table_index_spec.grammar in Resources */,
 				D338307C171CA3BA00CCE513 /* PGMatchPatternTemplate.txt in Resources */,
-				D31BBCFF18E4F4FE0003FFA3 /* testSlashSlashEscapeBackslashFile.txt in Resources */,
+				D31BBCFF18E4F4FE0003FFA3 /* slashFooBackslashSlashBarSlash.txt in Resources */,
 				D338307D171CA3BA00CCE513 /* PGSemanticPredicateTestExprTemplate.txt in Resources */,
 				D338307E171CA3BA00CCE513 /* PGSemanticPredicateTestStatTemplate.txt in Resources */,
 				D338307F171CA3BA00CCE513 /* PGSemanticPredicateTestAndThrowExprTemplate.txt in Resources */,
@@ -1758,6 +1816,7 @@
 				D338308C171CA3BA00CCE513 /* PGRepetitionPredictTemplate.txt in Resources */,
 				D338308D171CA3BA00CCE513 /* PGNegationSpeculateTemplate.txt in Resources */,
 				D338308E171CA3BA00CCE513 /* PGNegationPredictTemplate.txt in Resources */,
+				D34795D319423D9F00181E56 /* lines.grammar in Resources */,
 				D33830C8171DBE8A00CCE513 /* named_action.grammar in Resources */,
 				D30DA18F1725CBE000A1A3EC /* PGConstantMethodCallTemplate.txt in Resources */,
 				D30DA1951727059E00A1A3EC /* PGEOFCallTemplate.txt in Resources */,
@@ -1845,6 +1904,7 @@
 				D338303E171C923700CCE513 /* main.m in Sources */,
 				D376F6D418D0B3990064C888 /* PGMultipleNode.m in Sources */,
 				D376F6CC18D0B3990064C888 /* PGConstantNode.m in Sources */,
+				D366C1B11A5311F700D69669 /* PGRepetitionNode.m in Sources */,
 				D3383045171C923700CCE513 /* PGDocument.m in Sources */,
 				D376F6CA18D0B3990064C888 /* PGCompositeNode.m in Sources */,
 				D376F6F418D0B5190064C888 /* PGTokenKindDescriptor.m in Sources */,
@@ -1853,6 +1913,7 @@
 				D376F6CE18D0B3990064C888 /* PGDefinitionNode.m in Sources */,
 				D376F6DF18D0B5020064C888 /* PGParserFactory.m in Sources */,
 				D376F6DA18D0B3990064C888 /* PGReferenceNode.m in Sources */,
+				D366C1AD1A5310F200D69669 /* PGNegationNode.m in Sources */,
 				D376F6EE18D0B5190064C888 /* PGBaseVisitor.m in Sources */,
 				D376F6DC18D0B3990064C888 /* PGRootNode.m in Sources */,
 				D376F6C818D0B3990064C888 /* PGCollectionNode.m in Sources */,
@@ -1914,9 +1975,13 @@
 				D376F6C518D0B3990064C888 /* PGBaseNode.m in Sources */,
 				D3B22A621703DE2000446945 /* ExpressionParserTest.m in Sources */,
 				D3083AB91705F09B00DA6F95 /* ElementAssignParserTest.m in Sources */,
+				D3C3AD601A53091300695EB7 /* Negation2Parser.m in Sources */,
 				D31BBD0118E4F4FE0003FFA3 /* TDNumberStateTest.m in Sources */,
+				D366C1B21A53408A00D69669 /* Negation3ParserTest.m in Sources */,
 				D3A29E1C18E70F0E00DC591E /* GrammarActionsParser.m in Sources */,
+				D3D1766219B10C6E0052F5B8 /* Lines2ParserTest.m in Sources */,
 				D3083ABC1705F16000DA6F95 /* ElementAssignParser.m in Sources */,
+				D366C1B01A5311F700D69669 /* PGRepetitionNode.m in Sources */,
 				D3B63A3417079F5200BA9DBF /* ExpressionParserActionsTest.m in Sources */,
 				D398E30618EB684D004B883C /* QuoteSymbolParser.m in Sources */,
 				D3B63A3917079FE100BA9DBF /* ExpressionActionsParser.m in Sources */,
@@ -1926,6 +1991,7 @@
 				D3B63A42170910D100BA9DBF /* MethodsParserTest.m in Sources */,
 				D376F6F318D0B5190064C888 /* PGTokenKindDescriptor.m in Sources */,
 				D3B63A451709111A00BA9DBF /* MethodsParser.m in Sources */,
+				D34795D819423DC300181E56 /* LinesParser.m in Sources */,
 				D31BBD0518E4F5140003FFA3 /* TDTwitterStateTest.m in Sources */,
 				D3B63A4A1709155900BA9DBF /* MethodsFactoredParser.m in Sources */,
 				D3B63A4D1709155D00BA9DBF /* MethodsFactoredParserTest.m in Sources */,
@@ -1942,6 +2008,7 @@
 				D31BBD0418E4F5140003FFA3 /* TDSymbolStateTest.m in Sources */,
 				D3B63A75170A3FF000BA9DBF /* OptionalParser.m in Sources */,
 				D3B63A7C170A55DE00BA9DBF /* MultipleParser.m in Sources */,
+				D3C3AD671A530BAC00695EB7 /* Negation3Parser.m in Sources */,
 				D376F6C918D0B3990064C888 /* PGCompositeNode.m in Sources */,
 				D3B63A7F170A560900BA9DBF /* MultipleParserTest.m in Sources */,
 				D3B63A82170A671F00BA9DBF /* AltParserTest.m in Sources */,
@@ -1955,6 +2022,7 @@
 				D30B8F40170CA59A001796F4 /* DreadedParserTest.m in Sources */,
 				D3D48D8218E5B484001B54E9 /* TableIndexSpecParserTest.m in Sources */,
 				D30B8F45170CFA8C001796F4 /* NegationParser.m in Sources */,
+				D3C3AD5D1A5308A400695EB7 /* Negation2ParserTest.m in Sources */,
 				D3C7983219005F3300EC8CB2 /* NondeterministicPalindromeParser.m in Sources */,
 				D30B8F4A170CFAAD001796F4 /* NegationParserTest.m in Sources */,
 				D30B8F53170CFF2B001796F4 /* PEGKitParserTest.m in Sources */,
@@ -1962,6 +2030,7 @@
 				D3D48D8C18E5BFFF001B54E9 /* CurlyActionParserTest.m in Sources */,
 				D30B8F5E170D001E001796F4 /* DelimitedParser.m in Sources */,
 				D398E30A18EB7007004B883C /* DupeLiteralsParserTest.m in Sources */,
+				D366C1AC1A5310F200D69669 /* PGNegationNode.m in Sources */,
 				D30B8F65170D0EB0001796F4 /* PatternParserTest.m in Sources */,
 				D30B8F6A170D0EEB001796F4 /* PatternParser.m in Sources */,
 				D38BC893171494CE00BF530D /* GreedParserTest.m in Sources */,
@@ -1973,6 +2042,7 @@
 				D38BC8AE1714AF5900BF530D /* DotQuestionParser.m in Sources */,
 				D398E30318EB67F6004B883C /* QuoteSymbolParserTest.m in Sources */,
 				D317C1B818D206890036BE75 /* MiniMath2ParserTest.m in Sources */,
+				D3D1766319B10C6E0052F5B8 /* LinesParserTest.m in Sources */,
 				D31FE9CC191017580039886B /* INIParser.m in Sources */,
 				D38BC8B11716006D00BF530D /* SemanticPredicateParser.m in Sources */,
 				D38BC8B6171600A900BF530D /* SemanticPredicateParserTest.m in Sources */,
@@ -1997,6 +2067,7 @@
 				D36E68BC17207542007B4353 /* CSSParser.m in Sources */,
 				D306298218E1ED5D00EF745E /* TDTestScaffold.m in Sources */,
 				D36E68BF1720C840007B4353 /* HTMLParserTest.m in Sources */,
+				D3CC1EE8199284A80096B1AF /* Lines2Parser.m in Sources */,
 				D36E68C21720C84F007B4353 /* HTMLParser.m in Sources */,
 				D376F6D918D0B3990064C888 /* PGReferenceNode.m in Sources */,
 				D31BBCF218E4F1EF0003FFA3 /* TDTokenizerTest.m in Sources */,
@@ -2007,7 +2078,6 @@
 				D30DA18A1725B6A800A1A3EC /* RecoverySingleTokenDeletionTest.m in Sources */,
 				D30DA18D1725BB5700A1A3EC /* RecoverySingleTokenInsertionTest.m in Sources */,
 				D376F6DB18D0B3990064C888 /* PGRootNode.m in Sources */,
-				D31FE9C9191016EC0039886B /* INIParserTest.m in Sources */,
 				D3C7982D19005EE900EC8CB2 /* NondeterministicPalindromeParserTest.m in Sources */,
 				D376F6D718D0B3990064C888 /* PGPatternNode.m in Sources */,
 				D30DA1931726028500A1A3EC /* RecoveryResyncSetTest.m in Sources */,
@@ -2023,6 +2093,7 @@
 				D3B5EA811747515D00733A26 /* GreedyFailureNestedParser.m in Sources */,
 				D3B5EA841747518600733A26 /* GreedyFailureNestedParserTest.m in Sources */,
 				D3C7982819005C8A00EC8CB2 /* DeterministicPalindromeParserTest.m in Sources */,
+				D3D1766419B10C6E0052F5B8 /* INIParserTest.m in Sources */,
 				D376F6ED18D0B5190064C888 /* PGBaseVisitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2135,9 +2206,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-			};
+				SDKROOT = macosx;
 			name = Debug;
 		};
 		1DEB91B308733DA50010E9CD /* Release */ = {
@@ -2147,7 +2217,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -2253,7 +2323,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"\"$(PROJECT_DIR)/TDTemplateEngine/include\"",
+					"\"$(PROJECT_DIR)/lib/TDTemplateEngine/include\"",
 				);
 				INFOPLIST_FILE = "ParserGenApp/ParserGenApp-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -2285,7 +2355,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"\"$(PROJECT_DIR)/TDTemplateEngine/include\"",
+					"\"$(PROJECT_DIR)/lib/TDTemplateEngine/include\"",
 				);
 				INFOPLIST_FILE = "ParserGenApp/ParserGenApp-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -2308,6 +2378,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2342,6 +2413,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2382,7 +2454,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"\"$(PROJECT_DIR)/TDTemplateEngine/include\"",
+					"\"$(PROJECT_DIR)/lib/TDTemplateEngine/include\"",
 				);
 				INFOPLIST_FILE = "test/Tests-Info.plist";
 				LIBXML_PATH = "\"/usr/include/libxml2/\"";
@@ -2413,7 +2485,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"\"$(PROJECT_DIR)/TDTemplateEngine/include\"",
+					"\"$(PROJECT_DIR)/lib/TDTemplateEngine/include\"",
 				);
 				INFOPLIST_FILE = "test/Tests-Info.plist";
 				LIBXML_PATH = "\"/usr/include/libxml2/\"";
@@ -2442,7 +2514,6 @@
 				GCC_PREFIX_HEADER = PEGKit_Prefix.pch;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "res/PEGKit-Info.plist";
-				INSTALL_PATH = "@rpath";
 				LLVM_LTO = NO;
 				PRODUCT_NAME = PEGKit;
 				SKIP_INSTALL = YES;
@@ -2467,7 +2538,6 @@
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "res/PEGKit-Info.plist";
-				INSTALL_PATH = "@rpath";
 				LLVM_LTO = NO;
 				PRODUCT_NAME = PEGKit;
 				SKIP_INSTALL = YES;

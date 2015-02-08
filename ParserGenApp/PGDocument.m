@@ -32,7 +32,7 @@
 
 @implementation PGDocument
 
-- (id)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.factory = [PGParserFactory factory];
@@ -207,6 +207,8 @@
     NSString *filename = self.parserName;
     if (![filename hasSuffix:@"Parser"]) {
         filename = [NSString stringWithFormat:@"%@Parser.m", filename];
+    } else {
+        filename = [NSString stringWithFormat:@"%@.m", filename];
     }
 
     path = [path stringByAppendingPathComponent:filename];

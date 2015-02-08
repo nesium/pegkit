@@ -123,6 +123,8 @@
             @"=>": @"HASH_ROCKET",
             @"->": @"RIGHT_ARROW",
             @"<-": @"LEFT_ARROW",
+            @">>": @"SHIFT_RIGHT",
+            @"<<": @"SHIFT_LEFT",
             @",": @"COMMA",
             @".": @"DOT",
             @"..": @"DOT_DOT",
@@ -264,6 +266,20 @@
 }
 
 
+- (void)visitRepetition:(PGRepetitionNode *)node {
+    //NSLog(@"%s %@", __PRETTY_FUNCTION__, node);
+    
+    [self recurse:node];
+}
+
+
+- (void)visitNegation:(PGNegationNode *)node {
+    //NSLog(@"%s %@", __PRETTY_FUNCTION__, node);
+    
+    [self recurse:node];
+}
+
+
 - (void)visitCollection:(PGCollectionNode *)node {
     //NSLog(@"%s %@", __PRETTY_FUNCTION__, node);
     
@@ -315,6 +331,9 @@
         NSAssert(_tokenKinds, @"");
         
         NSString *name = node.token.stringValue;
+        if ([@"S" isEqualToString:name]) {
+            name = @"WHITESPACE";
+        }
         name = [NSString stringWithFormat:@"TOKEN_KIND_BUILTIN_%@", [name uppercaseString]];
         NSAssert([name length], @"");
 

@@ -24,8 +24,73 @@
 }
 
 
+- (void)testOctPrefix0 {
+    [t.numberState addPrefix:@"0" forRadix:8];
+    
+    s = @"0";
+    t.string = s;
+    
+    PKToken *tok = [t nextToken];
+    TDEquals(0.0, tok.doubleValue);
+    TDTrue(tok.isNumber);
+    TDEqualObjects(@"0", tok.stringValue);
+}
+
+
+- (void)testOctPrefixNeg0 {
+    [t.numberState addPrefix:@"0" forRadix:8];
+    
+    s = @"-0";
+    t.string = s;
+    
+    PKToken *tok = [t nextToken];
+    TDEquals(-0.0, tok.doubleValue);
+    TDTrue(tok.isNumber);
+    TDEqualObjects(@"-0", tok.stringValue);
+}
+
+
+- (void)testOctPrefix01 {
+    [t.numberState addPrefix:@"0" forRadix:8];
+    
+    s = @"01";
+    t.string = s;
+    
+    PKToken *tok = [t nextToken];
+    TDEquals(1.0, tok.doubleValue);
+    TDTrue(tok.isNumber);
+    TDEqualObjects(@"01", tok.stringValue);
+}
+
+
+- (void)testOctPrefix010 {
+    [t.numberState addPrefix:@"0" forRadix:8];
+    
+    s = @"010";
+    t.string = s;
+    
+    PKToken *tok = [t nextToken];
+    TDEquals(8.0, tok.doubleValue);
+    TDTrue(tok.isNumber);
+    TDEqualObjects(@"010", tok.stringValue);
+}
+
+
+- (void)testOctPrefix0Dot0 {
+    [t.numberState addPrefix:@"0" forRadix:8];
+    
+    s = @"0.0";
+    t.string = s;
+    
+    PKToken *tok = [t nextToken];
+    TDEquals(0.0, tok.doubleValue);
+    TDTrue(tok.isNumber);
+    TDEqualObjects(@"0.0", tok.stringValue);
+}
+
+
 - (void)testHexSuffix0 {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     
     s = @"0h";
     t.string = s;
@@ -38,7 +103,7 @@
 
 
 - (void)testHexSuffix00 {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     
     s = @"00h";
     t.string = s;
@@ -51,7 +116,7 @@
 
 
 - (void)testHexSuffix10 {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     
     s = @"10h";
     t.string = s;
@@ -64,7 +129,7 @@
 
 
 - (void)testHexSuffix1a {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     
     s = @"1ah";
     t.string = s;
@@ -77,7 +142,7 @@
 
 
 - (void)testHexSuffixFF {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     [t setTokenizerState:t.numberState from:'a' to:'f'];
     [t setTokenizerState:t.numberState from:'A' to:'F'];
     t.numberState.fallbackState = t.wordState;
@@ -93,7 +158,7 @@
 
 
 - (void)testHexSuffixFF_FF {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     [t setTokenizerState:t.numberState from:'a' to:'f'];
     [t setTokenizerState:t.numberState from:'A' to:'F'];
     t.numberState.fallbackState = t.wordState;
@@ -114,7 +179,7 @@
 
 
 - (void)testHexSuffix12FF {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     [t setTokenizerState:t.numberState from:'a' to:'f'];
     [t setTokenizerState:t.numberState from:'A' to:'F'];
     t.numberState.fallbackState = t.wordState;
@@ -135,7 +200,7 @@
 
 
 - (void)testHexSuffix12FFhF {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     [t setTokenizerState:t.numberState from:'a' to:'f'];
     [t setTokenizerState:t.numberState from:'A' to:'F'];
     t.numberState.fallbackState = t.wordState;
@@ -156,8 +221,8 @@
 
 
 - (void)testHexSuffix0000_FFFF {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
-    [t.numberState addGroupingSeparator:'_' forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
+    [t.numberState addGroupingSeparator:'_' forRadix:16];
     [t setTokenizerState:t.numberState from:'a' to:'f'];
     [t setTokenizerState:t.numberState from:'A' to:'F'];
     t.numberState.fallbackState = t.wordState;
@@ -173,9 +238,9 @@
 
 
 - (void)testHexSuffixAndPrefix0000_FFFF {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
-    [t.numberState addSuffix:@"h" forRadix:16.0];
-    [t.numberState addGroupingSeparator:'_' forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
+    [t.numberState addSuffix:@"h" forRadix:16];
+    [t.numberState addGroupingSeparator:'_' forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     [t setTokenizerState:t.numberState from:'a' to:'f'];
     [t setTokenizerState:t.numberState from:'A' to:'F'];
@@ -197,7 +262,7 @@
 
 
 - (void)testHexSuffixFFFoobar {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     [t setTokenizerState:t.numberState from:'a' to:'f'];
     [t setTokenizerState:t.numberState from:'A' to:'F'];
     t.numberState.fallbackState = t.wordState;
@@ -218,7 +283,7 @@
 
 
 - (void)testHexSuffixFFHot {
-    [t.numberState addSuffix:@"h" forRadix:16.0];
+    [t.numberState addSuffix:@"h" forRadix:16];
     [t setTokenizerState:t.numberState from:'a' to:'f'];
     [t setTokenizerState:t.numberState from:'A' to:'F'];
     t.numberState.fallbackState = t.wordState;
@@ -239,7 +304,7 @@
 
 
 - (void)testBinSuffix0 {
-    [t.numberState addSuffix:@"b" forRadix:2.0];
+    [t.numberState addSuffix:@"b" forRadix:2];
     
     s = @"0b";
     t.string = s;
@@ -252,7 +317,7 @@
 
 
 - (void)testBinSuffix00 {
-    [t.numberState addSuffix:@"b" forRadix:2.0];
+    [t.numberState addSuffix:@"b" forRadix:2];
     
     s = @"00b";
     t.string = s;
@@ -265,7 +330,7 @@
 
 
 - (void)testBinSuffix1 {
-    [t.numberState addSuffix:@"b" forRadix:2.0];
+    [t.numberState addSuffix:@"b" forRadix:2];
     
     s = @"1b";
     t.string = s;
@@ -278,7 +343,7 @@
 
 
 - (void)testBinSuffix1001 {
-    [t.numberState addSuffix:@"b" forRadix:2.0];
+    [t.numberState addSuffix:@"b" forRadix:2];
     
     s = @"1001b";
     t.string = s;
@@ -291,8 +356,8 @@
 
 
 - (void)testBinSuffix1001_0000 {
-    [t.numberState addSuffix:@"b" forRadix:2.0];
-    [t.numberState addGroupingSeparator:'_' forRadix:2.0];
+    [t.numberState addSuffix:@"b" forRadix:2];
+    [t.numberState addGroupingSeparator:'_' forRadix:2];
     
     s = @"1001_0000b";
     t.string = s;
@@ -305,8 +370,8 @@
 
 
 - (void)testBinSuffix1001_0000Foobar {
-    [t.numberState addSuffix:@"b" forRadix:2.0];
-    [t.numberState addGroupingSeparator:'_' forRadix:2.0];
+    [t.numberState addSuffix:@"b" forRadix:2];
+    [t.numberState addGroupingSeparator:'_' forRadix:2];
     
     s = @"1001_0000b foobar";
     t.string = s;
@@ -324,8 +389,8 @@
 
 
 - (void)testBinSuffix1001_0000Bat {
-    [t.numberState addSuffix:@"b" forRadix:2.0];
-    [t.numberState addGroupingSeparator:'_' forRadix:2.0];
+    [t.numberState addSuffix:@"b" forRadix:2];
+    [t.numberState addGroupingSeparator:'_' forRadix:2];
     
     s = @"1001_0000b bat";
     t.string = s;
@@ -343,7 +408,7 @@
 
 
 - (void)testHexSymbolPrefix0 {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$0";
@@ -357,7 +422,7 @@
 
 
 - (void)testHexSymbolPrefix0_10 {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$0 10";
@@ -379,7 +444,7 @@
 
 
 - (void)testHexSymbolFakePrefix {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$";
@@ -396,7 +461,7 @@
 
 
 - (void)testHexSymbolFakePrefix2 {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$ 1";
@@ -418,7 +483,7 @@
 
 
 - (void)testHexSymbolFakePrefix3 {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$ ff";
@@ -440,7 +505,7 @@
 
 
 - (void)testHexSymbolPrefix_10 {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"10";
@@ -457,7 +522,7 @@
 
 
 - (void)testHexSymbolPrefix1 {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$1";
@@ -471,7 +536,7 @@
 
 
 - (void)testHexSymbolPrefixA {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$A";
@@ -485,7 +550,7 @@
 
 
 - (void)testHexSymbolPrefixa {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$a";
@@ -499,7 +564,7 @@
 
 
 - (void)testHexSymbolPrefix10 {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$10";
@@ -513,7 +578,7 @@
 
 
 - (void)testHexSymbolPrefixFF {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$FF";
@@ -527,8 +592,8 @@
 
 
 - (void)testHexSymbolPrefixFFFF_FFFF {
-    [t.numberState addPrefix:@"$" forRadix:16.0];
-    [t.numberState addGroupingSeparator:'_' forRadix:16.0];
+    [t.numberState addPrefix:@"$" forRadix:16];
+    [t.numberState addGroupingSeparator:'_' forRadix:16];
     [t setTokenizerState:t.numberState from:'$' to:'$'];
     
     s = @"$FFFF_FFFF";
@@ -542,7 +607,7 @@
 
 
 - (void)testBinSymbolPrefix0 {
-    [t.numberState addPrefix:@"%" forRadix:2.0];
+    [t.numberState addPrefix:@"%" forRadix:2];
     [t setTokenizerState:t.numberState from:'%' to:'%'];
     
     s = @"%0";
@@ -556,7 +621,7 @@
 
 
 - (void)testBinSymbolPrefix1 {
-    [t.numberState addPrefix:@"%" forRadix:2.0];
+    [t.numberState addPrefix:@"%" forRadix:2];
     [t setTokenizerState:t.numberState from:'%' to:'%'];
     
     s = @"%1";
@@ -570,7 +635,7 @@
 
 
 - (void)testBinSymbolPrefix10 {
-    [t.numberState addPrefix:@"%" forRadix:2.0];
+    [t.numberState addPrefix:@"%" forRadix:2];
     [t setTokenizerState:t.numberState from:'%' to:'%'];
     
     s = @"%10";
@@ -584,7 +649,7 @@
 
 
 - (void)testBinSymbolPrefix0010 {
-    [t.numberState addPrefix:@"%" forRadix:2.0];
+    [t.numberState addPrefix:@"%" forRadix:2];
     [t setTokenizerState:t.numberState from:'%' to:'%'];
     
     s = @"%0010";
@@ -598,8 +663,8 @@
 
 
 - (void)testBinSymbolPrefix0001_0001 {
-    [t.numberState addPrefix:@"%" forRadix:2.0];
-    [t.numberState addGroupingSeparator:'_' forRadix:2.0];
+    [t.numberState addPrefix:@"%" forRadix:2];
+    [t.numberState addGroupingSeparator:'_' forRadix:2];
     [t setTokenizerState:t.numberState from:'%' to:'%'];
     
     s = @"%0001_0001";
@@ -1248,7 +1313,7 @@
 
 
 - (void)testInitSig {
-    s = @"- (id)init {";
+    s = @"- (instancetype)init {";
     t.string = s;
     r.string = s;
     PKToken *tok = [numberState nextTokenFromReader:r startingWith:[r read] tokenizer:t];
