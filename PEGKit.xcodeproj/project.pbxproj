@@ -8,6 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		2C380AD319753FFB001AFD74 /* TDTemplateEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D319137318F19D7900430BAD /* TDTemplateEngine.framework */; };
+		2C6510461A89F028009CFD19 /* PKTypes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221910FFE8B8C004514FE /* PKTypes.h */; };
+		2C6510471A89F05A009CFD19 /* PKParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3382F98171C80E100CCE513 /* PKParser.h */; };
+		2C6510481A89F05A009CFD19 /* PKParser+Subclass.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3A29E4018E8516F00DC591E /* PKParser+Subclass.h */; };
+		2C6510491A89F05A009CFD19 /* PKAssembly.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221990FFE8B9D004514FE /* PKAssembly.h */; };
+		2C65104A1A89F05A009CFD19 /* PKRecognitionException.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3382FD9171C8CB200CCE513 /* PKRecognitionException.h */; };
+		2C65104B1A89F05A009CFD19 /* PKReader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221960FFE8B95004514FE /* PKReader.h */; };
+		2C65104C1A89F05A009CFD19 /* PKToken.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221C30FFE8C07004514FE /* PKToken.h */; };
+		2C65104D1A89F05A009CFD19 /* PKTokenizer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221C90FFE8C15004514FE /* PKTokenizer.h */; };
+		2C65104E1A89F05A009CFD19 /* PKTokenizerState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221CC0FFE8C1B004514FE /* PKTokenizerState.h */; };
+		2C65104F1A89F05A009CFD19 /* PKNumberState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221CF0FFE8C24004514FE /* PKNumberState.h */; };
+		2C6510501A89F05A009CFD19 /* PKQuoteState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3F0E2470FFE8EB900C9DF74 /* PKQuoteState.h */; };
+		2C6510511A89F05A009CFD19 /* PKSymbolState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221D50FFE8C35004514FE /* PKSymbolState.h */; };
+		2C6510521A89F05A009CFD19 /* PKWordState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221D80FFE8C3D004514FE /* PKWordState.h */; };
+		2C6510531A89F05A009CFD19 /* PKWhitespaceState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221DB0FFE8C43004514FE /* PKWhitespaceState.h */; };
+		2C6510541A89F05A009CFD19 /* PKDelimitState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221DE0FFE8C49004514FE /* PKDelimitState.h */; };
+		2C6510551A89F05A009CFD19 /* PKDelimitDescriptorCollection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D33724E816FA635700D30459 /* PKDelimitDescriptorCollection.h */; };
+		2C6510561A89F05A009CFD19 /* PKDelimitDescriptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D33724D816FA62D400D30459 /* PKDelimitDescriptor.h */; };
+		2C6510571A89F05A009CFD19 /* PKCommentState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221E10FFE8C4E004514FE /* PKCommentState.h */; };
+		2C6510581A89F05A009CFD19 /* PKSingleLineCommentState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221E40FFE8C56004514FE /* PKSingleLineCommentState.h */; };
+		2C6510591A89F05A009CFD19 /* PKMultiLineCommentState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3C221E70FFE8C60004514FE /* PKMultiLineCommentState.h */; };
+		2C65105A1A89F05A009CFD19 /* PKEmailState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D35F4A8B11643662003811F3 /* PKEmailState.h */; };
+		2C65105B1A89F05A009CFD19 /* PKURLState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D35F4A8C11643662003811F3 /* PKURLState.h */; };
+		2C65105C1A89F05A009CFD19 /* PKTwitterState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D33DC19F11656952004CE58C /* PKTwitterState.h */; };
+		2C65105D1A89F05A009CFD19 /* PKHashtagState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D37F232A1453842800A98014 /* PKHashtagState.h */; };
+		2C65105E1A89F05A009CFD19 /* PKSymbolNode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D317C18D18D1F9230036BE75 /* PKSymbolNode.h */; };
+		2C65105F1A89F05A009CFD19 /* PKSymbolRootNode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D317C18E18D1F9230036BE75 /* PKSymbolRootNode.h */; };
+		2C6510601A89F067009CFD19 /* PKAST.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3A1492816F8C6BD00770DEE /* PKAST.h */; };
+		2C6510611A89F0A9009CFD19 /* PEGKit.h in Sources */ = {isa = PBXBuildFile; fileRef = D3F8A4A017581A3C00056188 /* PEGKit.h */; };
+		2C6510681A89F241009CFD19 /* PEGKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3F8A4A017581A3C00056188 /* PEGKit.h */; };
 		3D0466A918E1D9770022A1BC /* OCMock.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D37214CA18DF3B0100525058 /* OCMock.framework */; };
 		D306298218E1ED5D00EF745E /* TDTestScaffold.m in Sources */ = {isa = PBXBuildFile; fileRef = D306298118E1ED5D00EF745E /* TDTestScaffold.m */; };
 		D3083AB61705F05C00DA6F95 /* elementsAssign.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3083AB51705F05C00DA6F95 /* elementsAssign.grammar */; };
@@ -448,9 +477,37 @@
 		D317C12918D1F5EB0036BE75 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
+			dstPath = include/PEGKit;
 			dstSubfolderSpec = 16;
 			files = (
+				2C6510681A89F241009CFD19 /* PEGKit.h in CopyFiles */,
+				2C6510461A89F028009CFD19 /* PKTypes.h in CopyFiles */,
+				2C6510471A89F05A009CFD19 /* PKParser.h in CopyFiles */,
+				2C6510481A89F05A009CFD19 /* PKParser+Subclass.h in CopyFiles */,
+				2C6510491A89F05A009CFD19 /* PKAssembly.h in CopyFiles */,
+				2C65104A1A89F05A009CFD19 /* PKRecognitionException.h in CopyFiles */,
+				2C65104B1A89F05A009CFD19 /* PKReader.h in CopyFiles */,
+				2C65104C1A89F05A009CFD19 /* PKToken.h in CopyFiles */,
+				2C65104D1A89F05A009CFD19 /* PKTokenizer.h in CopyFiles */,
+				2C65104E1A89F05A009CFD19 /* PKTokenizerState.h in CopyFiles */,
+				2C65104F1A89F05A009CFD19 /* PKNumberState.h in CopyFiles */,
+				2C6510501A89F05A009CFD19 /* PKQuoteState.h in CopyFiles */,
+				2C6510511A89F05A009CFD19 /* PKSymbolState.h in CopyFiles */,
+				2C6510521A89F05A009CFD19 /* PKWordState.h in CopyFiles */,
+				2C6510531A89F05A009CFD19 /* PKWhitespaceState.h in CopyFiles */,
+				2C6510541A89F05A009CFD19 /* PKDelimitState.h in CopyFiles */,
+				2C6510551A89F05A009CFD19 /* PKDelimitDescriptorCollection.h in CopyFiles */,
+				2C6510561A89F05A009CFD19 /* PKDelimitDescriptor.h in CopyFiles */,
+				2C6510571A89F05A009CFD19 /* PKCommentState.h in CopyFiles */,
+				2C6510581A89F05A009CFD19 /* PKSingleLineCommentState.h in CopyFiles */,
+				2C6510591A89F05A009CFD19 /* PKMultiLineCommentState.h in CopyFiles */,
+				2C65105A1A89F05A009CFD19 /* PKEmailState.h in CopyFiles */,
+				2C65105B1A89F05A009CFD19 /* PKURLState.h in CopyFiles */,
+				2C65105C1A89F05A009CFD19 /* PKTwitterState.h in CopyFiles */,
+				2C65105D1A89F05A009CFD19 /* PKHashtagState.h in CopyFiles */,
+				2C65105E1A89F05A009CFD19 /* PKSymbolNode.h in CopyFiles */,
+				2C65105F1A89F05A009CFD19 /* PKSymbolRootNode.h in CopyFiles */,
+				2C6510601A89F067009CFD19 /* PKAST.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1892,6 +1949,7 @@
 				D317C16D18D1F6550036BE75 /* PKReader.m in Sources */,
 				D317C17118D1F6550036BE75 /* PKNumberState.m in Sources */,
 				D317C18218D1F6550036BE75 /* PKAST.m in Sources */,
+				2C6510611A89F0A9009CFD19 /* PEGKit.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2206,8 +2264,9 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+			};
 			name = Debug;
 		};
 		1DEB91B308733DA50010E9CD /* Release */ = {
