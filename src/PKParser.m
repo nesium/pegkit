@@ -87,13 +87,13 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
 
 @implementation PKParser
 
-- (id)init {
+- (instancetype)init {
     self = [self initWithDelegate:nil];
     return self;
 }
 
 
-- (id)initWithDelegate:(id)d {
+- (instancetype)initWithDelegate:(id)d {
     self = [super init];
     if (self) {
         self.delegate = d;
@@ -586,9 +586,9 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
     NSString *fmt = nil;
     
 #if defined(__LP64__)
-    fmt = @"\n\nLine : %lu\nNear : %@\n%@Found : %@\n\n";
+    fmt = @"Line : %lu\nNear : %@\n%@\nFound : %@";
 #else
-    fmt = @"\n\nLine : %u\nNear : %@\n%@Found : %@\n\n";
+    fmt = @"Line : %u\nNear : %@\n%@\nFound : %@";
 #endif
     
     PKToken *lt = LT(1);
